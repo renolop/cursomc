@@ -1,15 +1,28 @@
 package com.renolop.cursomc.resources;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.renolop.cursomc.domain.Categoria;
 
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
 
 	@RequestMapping(method=RequestMethod.GET)
-	public String listar() {
-		return "REST funcionando";
+	public List<Categoria> listar() {
+		
+		Categoria cat1 = new Categoria(1, "Informática");
+		Categoria cat2 = new Categoria(2, "Escritório" );
+		List<Categoria> categorias = new ArrayList<Categoria>();
+		
+		categorias.add(cat1);
+		categorias.add(cat2);
+		
+		return categorias;
 	}
 }
